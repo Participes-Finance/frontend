@@ -36,12 +36,12 @@ const defaultProvider = new JsonRpcProvider(RPC_URL);
 
 // State variables
 let onboard: OnboardAPI; // instance of Blocknative's onboard.js library
-const supportedChainIds = [1, 4]; // chain IDs supported by this app
+const supportedChainIds = [1, 4, 137, 1337, 80001]; // chain IDs supported by this app
 const rawProvider = ref<any>(); // raw provider from the user's wallet, e.g. EIP-1193 provider
 const provider = ref<Web3Provider | JsonRpcProvider>(defaultProvider); // ethers provider
 const signer = ref<JsonRpcSigner>(); // ethers signer
 const userAddress = ref<string>(); // user's wallet address
-const userEns = ref<string>(); // user's ENS name
+// const userEns = ref<string>(); // user's ENS name
 const network = ref<Network>(); // connected network, derived from provider
 
 // Reset state when, e.g.user switches wallets. Provider/signer are automatically updated by ethers so are not cleared
@@ -129,6 +129,10 @@ export default function useWalletStore() {
       _provider.getNetwork(), // get information on the connected network
     ]);
 
+    console.log('here:');
+    console.log(_userAddress);
+    console.log(_network);
+
     // If nothing has changed, no need to continue configuring
     if (_userAddress === userAddress.value && _network.chainId === network.value?.chainId) return;
 
@@ -142,15 +146,15 @@ export default function useWalletStore() {
       return;
     }
 
-    // Get ENS name
-    const _userEns = await _provider.lookupAddress(_userAddress);
+    // Get ENS name ---> WAS RETURNING ERRORS SINCE POLYGON AND SOME OTHER NETWORKS DO NO SUPPORT ENS :c
+    // const _userEns = await _provider.lookupAddress(_userAddress);
 
     // Now we save the user's info to the store. We don't do this earlier because the UI is reactive based on these
     // parameters, and we want to ensure this method completed successfully before updating the UI
     provider.value = markRaw(_provider);
     signer.value = _signer;
     userAddress.value = _userAddress;
-    userEns.value = _userEns;
+    // userEns.value = _userEns;
     network.value = markRaw(_network);
 
     // Start polling for data
@@ -170,6 +174,7 @@ export default function useWalletStore() {
     provider: computed(() => provider.value),
     signer: computed(() => signer.value),
     userAddress: computed(() => userAddress.value),
-    userDisplayName: computed(() => userEns.value || formatAddress(userAddress.value || '')),
+    // userDisplayName: computed(() => userEns.value || formatAddress(userAddress.value || '')),
+    userDisplayName: computed(() => formatAddress(userAddress.value || '')),
   };
 }
