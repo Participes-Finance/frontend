@@ -31,7 +31,7 @@ import useSettingsStore from 'src/store/settings';
 const navigation = [
   {
     name: 'Twitter',
-    href: 'https://twitter.com/Shr1ftyy',
+    href: 'https://twitter.com/ScopeLift',
     icon: defineComponent({
       render: () =>
         h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
@@ -43,7 +43,7 @@ const navigation = [
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/Participes-Finance',
+    href: 'https://github.com/ScopeLift',
     icon: defineComponent({
       render: () =>
         h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [

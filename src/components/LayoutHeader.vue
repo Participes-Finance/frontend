@@ -52,7 +52,7 @@ import { ExclamationIcon } from '@heroicons/vue/solid';
 // Header menu bar items
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Farms', href: '/farms' },
+  { name: 'About', href: '/about' },
   { name: 'Docs', href: '/docs' },
   { name: 'Contact', href: '/contact' },
 ];
