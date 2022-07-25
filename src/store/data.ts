@@ -19,9 +19,9 @@ const { provider, userAddress, network, signer } = useWalletStore();
 const lastBlockNumber = ref<number>(0);
 const lastBlockTimestamp = ref<number>(0);
 const ethBalance = ref<bigint>();
-const masterChefV2 = ref<Contract>(0);
-const veContract = ref<Contract>(0);
-const distContract = ref<Contract>(0);
+const masterChefV2 = ref<Contract>();
+const veContract = ref<Contract>();
+const distContract = ref<Contract>();
 const poolLength = ref<number>(0);
 const numLocks = ref<number>(0);
 const pools = ref();
@@ -96,14 +96,14 @@ export default function useDataStore() {
     return tokenBalance;
   }
 
-  async function getAllowance(tokenAddr: string, provider: any) {
-    const ERC20Contract = new Contract(tokenAddr, erc20abi, provider);
-    const allowance = (await ERC20Contract.allowance(userAddress.value, masterChefV2.value.address)) as BigNumber;
+  async function getAllowance(tokenAddr: string | undefined, provider: any) {
+    const ERC20Contract = new Contract(tokenAddr as string, erc20abi, provider);
+    const allowance = (await ERC20Contract.allowance(userAddress.value, masterChefV2?.value?.address)) as BigNumber;
     return allowance;
   }
 
-  async function approveContract(tokenAddr: string, provider: any, contractAddress: string) {
-    const ERC20Contract = new Contract(tokenAddr, erc20abi, provider);
+  async function approveContract(tokenAddr: string | undefined, provider: any, contractAddress: string | undefined) {
+    const ERC20Contract = new Contract(tokenAddr as string, erc20abi, provider);
     await ERC20Contract.approve(contractAddress, constants.MaxUint256);
   }
 

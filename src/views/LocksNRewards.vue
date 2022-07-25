@@ -57,7 +57,7 @@
       async function approve() {
         const token = await veContract?.value?.token();
         console.log(token);
-        await approveContract(token, signer.value, veContract.value.address);
+        await approveContract(token, signer.value, veContract?.value?.address);
       }
 
       async function createLock(){

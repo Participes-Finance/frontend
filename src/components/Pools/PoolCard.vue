@@ -68,7 +68,7 @@ export default defineComponent({
     }
 
     async function approve() {
-      await approveContract(tokenAddr, signer.value, masterChefV2.value.address);
+      await approveContract(tokenAddr, signer.value, masterChefV2?.value?.address);
     }
 
     async function harvestFromMasterChef() {

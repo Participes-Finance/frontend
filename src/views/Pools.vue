@@ -8,7 +8,7 @@
       <Suspense>
         <PoolCard
           v-for="(tokenAddr, index) in lpTokens"
-          :key="index"
+          :key="parseInt((index.toString()))"
           :tokenAddr="tokenAddr"
           :infos="userInfos[index]"
           :pid="index"

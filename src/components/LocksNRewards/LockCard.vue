@@ -5,7 +5,7 @@
         <div class="media-content bg-white">
           <p v-if="tokenId" class="title is-4 text-black">Lock #{{ tokenId }}</p>
           <p class="subtitle is-7 text-black">Claimables:</p>
-          <p v-for="(claimable, index) in claimableInfo" :key="index" class="subtitle is-7 text-black"> {{claimable.token}} : {{claimable.amount}}</p>
+          <p v-for="(claimable, index) in claimableInfo" :key="parseInt(index.toString())" class="subtitle is-7 text-black"> {{claimable.token}} : {{claimable.amount}}</p>
           <p v-if="amountLocked" class="subtitle is-7 text-black">Amount Locked: {{ amountLocked }}</p>
           <p v-if="endDate" class="subtitle is-7 text-black">Lock End Time: {{ endDate }}</p>
           <p class="subtitle is-6 text-black">Deposit Amount:</p>
