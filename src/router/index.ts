@@ -10,11 +10,18 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/pools',
+    name: 'Pools',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/Pools.vue'),
+  },
+  {
+    path: '/locksnrewards',
+    name: 'LocksNRewards',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/LocksNRewards.vue'),
   },
   // Fallback route for handling 404s
   { path: '/:pathMatch(.*)*', name: '404', component: () => import('../views/Error404.vue') },

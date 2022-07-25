@@ -9,6 +9,10 @@ declare module '*.vue' {
 // file for module 'moduleName'` errors
 declare module '@heroicons/*';
 declare module 'nightwind/helper';
+declare module "*.png" {
+  const value: string;
+  export default value;
+}
 
 // Shims for environment variables
 interface ImportMeta {

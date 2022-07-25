@@ -20,6 +20,8 @@
           </div>
         </div>
         <div class="ml-10 space-x-4">
+          <!-- <img class="h-10 w-auto" src="../assets/logo.png" alt="logo" /> -->
+          <!-- <p v-if="partsBalance">{{ partsBalance }}</p> -->
           <div v-if="userDisplayName">{{ userDisplayName }}</div>
           <div v-else-if="!isSupportedNetwork" class="flex items-center">
             <ExclamationIcon class="h-5 w-5 text-yellow-500 mr-2" />
@@ -47,21 +49,30 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import useWalletStore from 'src/store/wallet';
+import useDataStore from 'src/store/data';
+
+// const { getERC20Balance } = useDataStore();
+const { connectWallet, isSupportedNetwork, userDisplayName, provider, network } = useWalletStore();
 import { ExclamationIcon } from '@heroicons/vue/solid';
+// import { formatUnits } from '@ethersproject/units';
+// import { PARTS_ADDRESSES } from 'src/utils/constants';
 
 // Header menu bar items
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
+  { name: 'Pools', href: '/pools' },
+  { name: 'Locks and Rewards', href: '/locksnrewards' },
   { name: 'Docs', href: '/docs' },
-  { name: 'Contact', href: '/contact' },
 ];
 
 export default defineComponent({
   name: 'LayoutHeader',
   components: { ExclamationIcon },
-  setup() {
-    const { connectWallet, isSupportedNetwork, userDisplayName } = useWalletStore();
+  async setup() {
+    // const chainId = (network?.value?.chainId)?.toString();
+    // const partsTokenAddr = PARTS_ADDRESSES?.get(chainId as string);
+    // console.log(partsTokenAddr);
+    // const partsBalance = parseInt(formatUnits(await getERC20Balance(partsTokenAddr, provider.value))).toFixed(4);
     return { connectWallet, isSupportedNetwork, navigation, userDisplayName };
   },
 });

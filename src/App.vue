@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <layout-header id="header" />
+    <Suspense>
+      <layout-header id="header" />
+    </Suspense>
     <main id="app-main" class="flex-grow bg-white"><router-view /></main>
     <layout-footer id="footer" />
   </div>
