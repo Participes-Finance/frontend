@@ -9,7 +9,7 @@ declare module '*.vue' {
 // file for module 'moduleName'` errors
 declare module '@heroicons/*';
 declare module 'nightwind/helper';
-declare module "*.png" {
+declare module '*.png' {
   const value: string;
   export default value;
 }

@@ -17,18 +17,12 @@ export const MULTICALL_ABI = [
 ];
 
 export const MASTERCHEFV2_ADDRESSES = new Map<string, string>([
-  ["80001", "0x94A81d43299156c59C72b419a5063f9D557837b0"],
-  ["1337", "0x94A81d43299156c59C72b419a5063f9D557837b0"]
-])
+  ['80001', '0x94A81d43299156c59C72b419a5063f9D557837b0'],
+  ['1337', '0x94A81d43299156c59C72b419a5063f9D557837b0'],
+]);
 
-export const PARTS_ADDRESSES = new Map<string, string>([
-  ["80001", "0x9EE52D858a9998DE4AFd437E724861B8714FeFB8"]
-])
+export const PARTS_ADDRESSES = new Map<string, string>([['80001', '0x9EE52D858a9998DE4AFd437E724861B8714FeFB8']]);
 
-export const VE_ADDRESSES = new Map<string, string>([
-  ["80001", "0xcc3758bD6719Eaa0cF668852EDc9BC50d3738263"]
-])
+export const VE_ADDRESSES = new Map<string, string>([['80001', '0xBc6e5491DFAc98BF090D1A8b37f5c41965Ee0Fd3']]);
 
-export const DIST_ADDRESSES = new Map<string, string>([
-  ["80001", "0xE69f2defdE966F6CF2f758Eb58dcC7a09BfFF649"]
-])
+export const DIST_ADDRESSES = new Map<string, string>([['80001', '0xc152A91414E88fef05Fa2ba2368Ea7aD48d8425f']]);

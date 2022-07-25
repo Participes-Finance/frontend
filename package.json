@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
+    "build": "vue-tsc --noEmit && vite build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "eslint --ext .ts,.js,.vue .",
+    "dev": "vite",
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,json,md,sol,js,ts}\""
   },
   "dependencies": {
