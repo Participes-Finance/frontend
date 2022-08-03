@@ -27,7 +27,7 @@
         </div>
       </div>
       <button class="button with-margins bg-white text-black" @click="createLock">Create New Lock</button>
-      <div style="margin-top: 20px;">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-8 auto-rows-fr" style="margin-top: 20px;">
         <Suspense>
           <LockCard v-for="id in locks" :key="id" :tokenId="id" />
         </Suspense>
@@ -81,15 +81,32 @@
 </script>
 
 <style>
-.with-margins{
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+  .with-margins{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
-#container {
-  display: flex;                  /* establish flex container */
-  flex-direction: row;            /* default value; can be omitted */
-  flex-wrap: nowrap;              /* default value; can be omitted */
-  justify-content: space-between; /* switched from default (flex-start, see below) */
-}
+  .auto-rows-fr {
+      grid-auto-rows: minmax(0,1fr);
+  }
+  .grid-cols-1 {
+      grid-template-columns: repeat(auto,minmax(0,1fr));
+  }
+  .gap-y-8 {
+      row-gap: 2rem;
+  }
+  .gap-x-8 {
+      -webkit-column-gap: 2rem;
+      column-gap: 2rem;
+  }
+  .grid {
+      display: grid;
+  }
+
+  #container {
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+  }
 </style>

@@ -5,24 +5,19 @@ import Home from '../views/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
     path: '/interface-build',
     name: 'Home',
     component: Home,
   },
   {
-    path: '/pools',
+    path: '/interface-build/pools',
     name: 'Pools',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Pools.vue'),
   },
   {
-    path: '/locksnrewards',
+    path: '/interface-build/locksnrewards',
     name: 'LocksNRewards',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route which is lazy-loaded when the route is visited.

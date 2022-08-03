@@ -6,13 +6,15 @@
   <div>
     <div class="center-div">
       <Suspense>
-        <PoolCard
-          v-for="(tokenAddr, index) in lpTokens"
-          :key="parseInt((index.toString()))"
-          :tokenAddr="tokenAddr"
-          :infos="userInfos[index]"
-          :pid="index"
-        />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-8 auto-rows-fr" style="margin-top: 20px;">
+          <PoolCard
+            v-for="(tokenAddr, index) in lpTokens"
+            :key="parseInt((index.toString()))"
+            :tokenAddr="tokenAddr"
+            :infos="userInfos[index]"
+            :pid="index"
+          />
+        </div>
       </Suspense>
     </div>
   </div>
@@ -41,9 +43,26 @@ export default defineComponent({
 </script>
 
 <style>
-.center-div {
-  margin-left: 100px;
-  margin-right: 100px;
-  display: inline-block;
-}
+  .center-div {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: inline-block;
+  }
+
+  .auto-rows-fr {
+      grid-auto-rows: minmax(0,1fr);
+  }
+  .grid-cols-1 {
+      grid-template-columns: repeat(auto,minmax(0,1fr));
+  }
+  .gap-y-8 {
+      row-gap: 2rem;
+  }
+  .gap-x-8 {
+      -webkit-column-gap: 2rem;
+      column-gap: 2rem;
+  }
+  .grid {
+      display: grid;
+  }
 </style>
