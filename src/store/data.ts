@@ -2,7 +2,7 @@
  * @dev Poll on each block to read data
  */
 
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { BigNumber, Contract } from 'src/utils/ethers';
 import useWalletStore from 'src/store/wallet';
 import { constants } from 'ethers';
@@ -127,9 +127,9 @@ export default function useDataStore() {
     veContract,
     distContract,
     poolLength,
-    numLocks,
-    pools,
-    lpTokens,
-    userInfos,
+    numLocks: computed(() => (numLocks.value)),
+    pools: computed(() => (pools.value)),
+    lpTokens: computed(() => (lpTokens.value)),
+    userInfos: computed(() => (userInfos.value))
   };
 }

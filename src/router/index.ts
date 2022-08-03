@@ -10,6 +10,11 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
+    path: '/interface-build',
+    name: 'Home',
+    component: Home,
+  },
+  {
     path: '/pools',
     name: 'Pools',
     // route level code-splitting
