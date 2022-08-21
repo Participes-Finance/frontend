@@ -5,7 +5,7 @@
         <div class="media-content bg-white">
           <p v-if="tokenId" class="title is-4 text-black">Lock #{{ tokenId }}</p>
           <p class="subtitle is-7 text-black">Claimables:</p>
-          <p v-for="(claimable, index) in claimableInfo" :key="parseInt(index.toString())" class="subtitle is-7 text-black"> {{claimable.token}} : {{claimable.amount}}</p>
+          <p v-for="(claimable, index) in claimables" :key="parseInt(index.toString())" class="subtitle is-7 text-black"> {{claimable.get("name")}} : {{claimable.get("amount")}}</p>
           <p v-if="amountLocked" class="subtitle is-7 text-black">Amount Locked: {{ amountLocked }}</p>
           <p v-if="endDate" class="subtitle is-7 text-black">Lock End Time: {{ endDate }}</p>
           <p class="subtitle is-6 text-black">Deposit Amount:</p>
@@ -30,7 +30,7 @@ import useWalletStore from 'src/store/wallet';
 import useDataStore from 'src/store/data';
 
 import { BigNumber } from '@ethersproject/bignumber';
-const { userAddress} = useWalletStore();
+const { userAddress, provider} = useWalletStore();
 const { veContract, distContract } = useDataStore();
 import { commify, formatUnits, Contract } from 'src/utils/ethers';
 import { abi as erc20abi } from 'src/utils/contracts/ERC20.json';
@@ -49,6 +49,28 @@ export default defineComponent({
     const date = new Date(endTimestamp);
     const endDate = date.toLocaleString();
     const claimableInfo = await distContract?.value?.claimable(tokenId);
+    let claimables = new Array();
+    for(let i=0; i<Object.keys(claimableInfo).length; i++){
+      const tokenContract = new Contract(claimableInfo[i].token, JSON.stringify(erc20abi), provider.value);
+      let tokenName;
+
+      try{
+        tokenName = await tokenContract?.name() ? await tokenContract.name() : 'NULL';
+      } catch(e: any){
+        tokenName = "NULL";
+      }
+
+      console.log("Name");
+      console.log(tokenName);
+
+      const claimAmount = await claimableInfo[i].amount;
+      claimables.push(new Map<string, string>
+      ([
+        ["name", tokenName.toString()],
+        ["amount", claimAmount.toNumber().toFixed()]
+      ])
+      );
+    }
 
     async function increaseAmount(){
       const amount = (increasingAmount.value * 1e18).toFixed();
@@ -68,7 +90,7 @@ export default defineComponent({
       increasingAmount,
       increaseAmount,
       claimRewards,
-      claimableInfo
+      claimables
     };
   },
 });

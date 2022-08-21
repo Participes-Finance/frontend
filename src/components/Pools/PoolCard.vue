@@ -21,7 +21,7 @@
     <button class="button bg-white text-black" @click="approve">Approve</button>
     <div></div>
     <button v-if="isDeployer" class="button bg-white text-black" @click="harvest">Harvest</button>
-    <button v-if="isDeployer" class="button bg-white text-black" @click="harvestFromMasterChef">AdminHarvest</button>
+    <!-- <button v-if="isDeployer" class="button bg-white text-black" @click="harvestFromMasterChef">AdminHarvest</button> -->
     <div></div>
   </div>
 </template>

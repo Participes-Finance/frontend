@@ -17,12 +17,12 @@ export const MULTICALL_ABI = [
 ];
 
 export const MASTERCHEFV2_ADDRESSES = new Map<string, string>([
-  ['80001', '0x94A81d43299156c59C72b419a5063f9D557837b0'],
+  ['80001', '0x767f2f056A35721FD5F475Ae25955039fF2d5b39'],
   ['1337', '0x94A81d43299156c59C72b419a5063f9D557837b0'],
 ]);
 
-export const PARTS_ADDRESSES = new Map<string, string>([['80001', '0x9EE52D858a9998DE4AFd437E724861B8714FeFB8']]);
+export const PARTS_ADDRESSES = new Map<string, string>([['80001', '0xFa547Da9b7EE8E7cf098395122d231587d995e8e']]);
 
-export const VE_ADDRESSES = new Map<string, string>([['80001', '0xBc6e5491DFAc98BF090D1A8b37f5c41965Ee0Fd3']]);
+export const VE_ADDRESSES = new Map<string, string>([['80001', '0xDd8277AA7Cfb00060DC1Cc41F3916c61344D13bA']]);
 
-export const DIST_ADDRESSES = new Map<string, string>([['80001', '0xc152A91414E88fef05Fa2ba2368Ea7aD48d8425f']]);
+export const DIST_ADDRESSES = new Map<string, string>([['80001', '0xAe77B14B437A629D02a860BdeE439F63982cfc26']]);
