@@ -26,3 +26,5 @@ export const PARTS_ADDRESSES = new Map<string, string>([['80001', '0xFa547Da9b7E
 export const VE_ADDRESSES = new Map<string, string>([['80001', '0xDd8277AA7Cfb00060DC1Cc41F3916c61344D13bA']]);
 
 export const DIST_ADDRESSES = new Map<string, string>([['80001', '0xAe77B14B437A629D02a860BdeE439F63982cfc26']]);
+
+export const FAUCET_ADDRESSES = new Map<string, string>([['80001', '0x2ee6AB51b93CdcfD01BC033B3D89Ae74ec4dC602']]);

@@ -62,6 +62,7 @@ const navigation = [
   { name: 'Home', href: '/interface-build' },
   { name: 'Pools', href: '/interface-build/pools' },
   { name: 'Locks and Rewards', href: '/interface-build/locksnrewards' },
+  { name: 'Faucet', href: '/interface-build/faucet' },
 ];
 
 export default defineComponent({
